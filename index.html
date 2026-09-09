@@ -410,6 +410,7 @@
      Grundsatz: auf dem Handy steht dasselbe wie am Laptop, nur untereinander
      und groesser. Nichts wird ausgeblendet. ===== */
   .hero-bild-mob{display:none}
+  .wisch-hinweis{display:none}
   @media(max-width:760px){
     /* Hero: Aussage, Bild, Text, Knopf - in dieser Reihenfolge */
     .hero{min-height:auto;padding:88px 0 120px}
@@ -445,8 +446,15 @@
     .quiz-card{padding:26px 18px;border-radius:16px}
     .preis-karte{padding:24px 20px}
     .preis-karte .betrag{font-size:30px}
-    .mz-flaechen{grid-template-columns:1fr;gap:16px}
-    .mz-flaeche img{aspect-ratio:4/3;object-fit:cover}
+    /* Leistungskacheln zum Wischen statt untereinander */
+    .mz-flaechen{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;padding:4px 20px 14px;margin:0 -20px;
+      scrollbar-width:none}
+    .mz-flaechen::-webkit-scrollbar{display:none}
+    .mz-flaeche{flex:0 0 82%;scroll-snap-align:center}
+    .mz-flaeche img{aspect-ratio:4/3;object-fit:cover;width:100%}
+    .wisch-hinweis{display:flex;align-items:center;justify-content:center;gap:8px;
+      margin-top:10px;font-size:13.5px;color:var(--muted)}
     .mz-band .wrap{padding:60px 20px}
     h2{font-size:clamp(28px,8vw,38px)}
     .mz-sec p, .mz-karte p, .faq p{font-size:16.5px;line-height:1.6}
@@ -505,13 +513,9 @@
   <section class="panel">
     <div class="media">
       <div class="kenburns" style="background:linear-gradient(135deg,#2a1a1a,#0b0b0f)"></div>
-      <!-- poster: damit hier auch dann ein Bild steht, wenn der Browser das
-           Video nicht abspielt - Datensparmodus, verweigertes Autoplay, oder
-           ein Tab, der noch nie im Vordergrund war. Vorher blieb die Flaeche
-           in diesen Faellen schwarz. -->
-      <video class="bgv" autoplay muted loop playsinline preload="none"
-             poster="videos/panel-vorher-standbild.jpg"
-             data-video="videos/panel-vorher.mp4"></video>
+      <!-- Standbild statt Video: der Inhaber wollte das alte Bad-Video weg.
+           Hier steht jetzt ein eigenes, fertiges Bad. -->
+      <img class="bgv" src="bilder/panel-bad.jpg" alt="Fertiges Bad mit ebenerdiger Dusche und Eckwanne" loading="lazy">
       <div class="scrim"></div>
     </div>
     <span class="num">01</span>
@@ -580,15 +584,16 @@
       <p>Vom Wannentausch bis zum Komplettbad. Was bei Ihnen sinnvoll ist, sagen wir im kostenlosen Vor-Ort-Termin &ndash; auch dann, wenn es weniger ist als gedacht.</p>
     </div>
     <div class="mz-flaechen">
-      <div class="mz-flaeche"><img src="bilder/dusche-wanne.jpg" alt="Bad mit ebenerdiger Dusche und Eckwanne" loading="lazy" width="675" height="900"><div class="txt"><h4>Komplettbad</h4><p>Alles neu: Abbruch, Leitungen, Abdichtung, Fliesen, Sanitär und Elektro &ndash; von einem Betrieb.</p></div></div>
-      <div class="mz-flaeche"><img src="bilder/grossformat.jpg" alt="Großformatfliesen 60 x 120 im Bad" loading="lazy" width="675" height="900"><div class="txt"><h4>Wanne raus, Dusche rein</h4><p>Die Wanne raus, eine bodengleiche Dusche rein. Der häufigste Einzelauftrag, meist in wenigen Tagen.</p></div></div>
-      <div class="mz-flaeche"><img src="bilder/bad-gesamt.jpg" alt="Bad mit Waschtisch, Spiegel und WC" loading="lazy" width="675" height="900"><div class="txt"><h4>Fliesen und Abdichtung</h4><p>Boden und Wand neu gefliest, mit Verbundabdichtung nach DIN 18534 in allen Spritzwasserbereichen.</p></div></div>
-      <div class="mz-flaeche"><img src="bilder/vorher-rohbau.jpg" alt="Bad im Rohbau während der Sanierung" loading="lazy" width="675" height="900"><div class="txt"><h4>Einzelmaßnahmen</h4><p>Nur die Dusche, nur der Boden, nur das WC. Auch kleine Aufträge, ohne Mindestgröße.</p></div></div>
+      <div class="mz-flaeche"><img src="bilder/kachel-komplettbad.jpg" alt="Fertiges Bad mit ebenerdiger Dusche und Eckwanne" loading="lazy" width="675" height="900"><div class="txt"><h4>Komplettbad</h4><p>Alles neu: Abbruch, Leitungen, Abdichtung, Fliesen, Sanitär und Elektro &ndash; von einem Betrieb.</p></div></div>
+      <div class="mz-flaeche"><img src="bilder/kachel-dusche.jpg" alt="Bodengleiche Dusche mit Ablaufrinne, frisch gefliest" loading="lazy" width="675" height="900"><div class="txt"><h4>Wanne raus, Dusche rein</h4><p>Die Wanne raus, eine bodengleiche Dusche rein. Der häufigste Einzelauftrag, meist in wenigen Tagen.</p></div></div>
+      <div class="mz-flaeche"><img src="bilder/kachel-abdichtung.jpg" alt="Verbundabdichtung auf dem Boden vor dem Fliesen" loading="lazy" width="675" height="900"><div class="txt"><h4>Fliesen und Abdichtung</h4><p>Boden und Wand neu gefliest, mit Verbundabdichtung nach DIN 18534 in allen Spritzwasserbereichen.</p></div></div>
+      <div class="mz-flaeche"><img src="bilder/kachel-wanne.jpg" alt="Eckwanne mit Duschbereich nach dem Umbau" loading="lazy" width="675" height="900"><div class="txt"><h4>Einzelmaßnahmen</h4><p>Nur die Dusche, nur der Boden, nur das WC. Auch kleine Aufträge, ohne Mindestgröße.</p></div></div>
     </div>
+    <p class="wisch-hinweis"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 5l-7 7 7 7v-4h6v-6H9V5zm6 0v4h6V5h-6zm0 10v4h6v-4h-6z"/></svg>Zum Blättern nach rechts wischen</p>
 
     <div class="mz-vergleich">
       <div class="mz-spalte schlecht">
-        <img src="bilder/vorher-rohbau.jpg" alt="Bad im Rohbau, alte Leitungen freigelegt" loading="lazy" width="900" height="1200">
+        <img src="bilder/kachel-wanne.jpg" alt="Bad im Rohbau, alte Leitungen freigelegt" loading="lazy" width="900" height="1200">
         <div class="txt">
         <h4>Fünf Einzelfirmen</h4>
         <ul>
@@ -600,7 +605,7 @@
         </div>
       </div>
       <div class="mz-spalte gut">
-        <img src="bilder/bad-gesamt.jpg" alt="Fertiges Bad mit Waschtisch, Spiegel und WC" loading="lazy" width="900" height="1200">
+        <img src="bilder/kachel-abdichtung.jpg" alt="Fertiges Bad mit Waschtisch, Spiegel und WC" loading="lazy" width="900" height="1200">
         <div class="txt">
         <h4>Berisa Bau</h4>
         <ul>

@@ -414,14 +414,16 @@
     /* Hero: Aussage, Bild, Text, Knopf - in dieser Reihenfolge */
     .hero{min-height:auto;padding:88px 0 120px}
     .hero .wrap{gap:0;padding-top:70px;padding-bottom:40px}
-    .hero .pill{font-size:11.5px;letter-spacing:1.4px;padding:8px 14px;line-height:1.5;
-                text-align:left;margin-bottom:20px}
+    .hero .pill{display:flex;flex-wrap:wrap;justify-content:center;text-align:center;
+                font-size:11px;letter-spacing:1.2px;padding:9px 14px;line-height:1.45;
+                gap:6px;margin-bottom:20px;width:100%}
     h1{font-size:clamp(38px,10vw,52px);margin-bottom:18px;line-height:1.06}
 
     /* Das grosse Badfoto - am Laptop steht es rechts, hier direkt unter der Ueberschrift */
     .hero-bild{display:none}
     .hero-bild-mob{display:block;margin:4px 0 22px}
-    .hero-bild-mob img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px;
+    .hero-bild-mob img{width:100%;aspect-ratio:16/10;max-height:40vh;object-fit:cover;
+      object-position:center 72%;border-radius:16px;
       box-shadow:0 24px 60px rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.10)}
 
     .hero .lead{font-size:17px;line-height:1.55;margin-bottom:24px}

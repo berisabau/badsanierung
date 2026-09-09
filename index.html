@@ -446,11 +446,6 @@
     .quiz-card{padding:26px 18px;border-radius:16px}
     .preis-karte{padding:24px 20px}
     .preis-karte .betrag{font-size:30px}
-    .abbruch-bilder{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;
-      -webkit-overflow-scrolling:touch;padding:4px 20px 10px;margin:0 -20px;scrollbar-width:none}
-    .abbruch-bilder::-webkit-scrollbar{display:none}
-    .abbruch-bilder figure{flex:0 0 78%;scroll-snap-align:center}
-
     /* Leistungskacheln zum Wischen statt untereinander */
     .mz-flaechen{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;
       -webkit-overflow-scrolling:touch;padding:4px 20px 14px;margin:0 -20px;
@@ -492,6 +487,14 @@
   .abbruch-bilder img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:12px;
     border:1px solid rgba(0,0,0,.08);box-shadow:0 14px 34px rgba(16,24,40,.12)}
   .abbruch-bilder figcaption{margin-top:10px;font-size:14.5px;color:var(--muted)}
+  @media(max-width:760px){
+    /* Wischgalerie: muss nach der Grundregel stehen, sonst gewinnt das Raster */
+    .abbruch-bilder{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;padding:4px 20px 10px;margin:0 -20px;scrollbar-width:none}
+    .abbruch-bilder::-webkit-scrollbar{display:none}
+    .abbruch-bilder figure{flex:0 0 78%;scroll-snap-align:center}
+    .abbruch-bilder img{aspect-ratio:3/4}
+  }
 </style>
 </head>
 <body>

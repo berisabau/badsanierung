@@ -442,8 +442,15 @@
 
     /* Alles andere: gleiche Inhalte, groessere Schrift, eine Spalte */
     .mz-sec{padding:66px 0}
-    .quiz-sec{padding:66px 0}
-    .quiz-card{padding:26px 18px;border-radius:16px}
+    /* Quizkasten und Fusszeile randlos ueber die volle Breite: der helle
+       Rahmen und die abgerundeten Ecken haben auf dem Handy einen weissen
+       Rand erzeugt. Jetzt schliesst der dunkle Bereich buendig ab. */
+    .quiz-sec{padding:56px 0 0}
+    .quiz-sec .wrap{padding-left:0;padding-right:0}
+    .quiz-card{max-width:none;margin:0;padding:30px 20px 34px;border-radius:0;
+      border-left:0;border-right:0;border-bottom:0;background:rgba(255,255,255,.03)}
+    footer{padding:48px 0 26px}
+    footer .wrap{padding-left:20px;padding-right:20px}
     .preis-karte{padding:24px 20px}
     .preis-karte .betrag{font-size:30px}
     /* Leistungskacheln zum Wischen statt untereinander */

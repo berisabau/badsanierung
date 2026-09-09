@@ -460,6 +460,22 @@
     .mz-sec p, .mz-karte p, .faq p{font-size:16.5px;line-height:1.6}
     .faq summary{font-size:17px}
   }
+  .staedte-mehr{margin-top:10px}
+  .staedte-mehr summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px;
+                        font-size:14px;font-weight:500;color:#fff;padding:6px 0}
+  .staedte-mehr summary::-webkit-details-marker{display:none}
+  .staedte-mehr summary::after{content:"";width:7px;height:7px;flex:none;
+       border-right:2px solid var(--red-2);border-bottom:2px solid var(--red-2);
+       transform:rotate(45deg) translate(-2px,-2px);transition:transform .25s ease}
+  .staedte-mehr[open] summary::after{transform:rotate(-135deg) translate(-2px,-2px)}
+  .staedte-mehr summary:hover{color:var(--red-2)}
+  .staedte-mehr .zu{display:none}
+  .staedte-mehr[open] .auf{display:none}
+  .staedte-mehr[open] .zu{display:inline}
+  .staedte-mehr[open] .staedte-rest{animation:aufklappen .28s ease}
+  .staedte-mehr[open]{display:flex;flex-direction:column-reverse;align-items:flex-start;margin-top:2px}
+  .staedte-mehr[open] summary{margin-top:8px}
+    .foot-recht{display:none}
 </style>
 </head>
 <body>
@@ -872,24 +888,59 @@
         <a href="#top" class="brand"><img src="assets/logo-red.svg" alt="Berisa Bau Logo" /></a>
         <p>Planung, Renovierung und Sanierung aus einer Hand. Terminsicher und präzise im Wohn-, Gewerbe- und Industriebau.</p>
       </div>
+
+      <!-- Einsatzgebiet. Vier Staedte stehen offen da, der Rest kommt auf
+           Tastendruck dazu - kein neues Fenster, kein Sprung. <details> kann
+           das von Haus aus; das Aufklappen ist rein optisch animiert. Wer
+           gerade in Krefeld sitzt, soll seine Stadt finden, ohne zu suchen. -->
+      <div>
+        <h4>Einsatzgebiet</h4>
+        <ul class="staedte">
+          <li>Mülheim an der Ruhr</li>
+          <li>Duisburg</li>
+          <li>Oberhausen</li>
+          <li>Essen</li>
+        </ul>
+        <details class="staedte-mehr">
+          <summary><span class="auf">Alle 12 Städte anzeigen</span><span class="zu">Weniger anzeigen</span></summary>
+          <div class="staedte-rest">
+            <ul class="staedte">
+              <li>Bottrop</li>
+              <li>Düsseldorf</li>
+              <li>Gelsenkirchen</li>
+              <li>Köln</li>
+              <li>Dortmund</li>
+              <li>Dinslaken</li>
+              <li>Krefeld</li>
+              <li>Velbert</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <div>
+        <h4>Rechtliches</h4>
+        <p><a href="impressum.html">Impressum</a></p>
+        <p><a href="datenschutz.html">Datenschutz</a></p>
+        <!-- AGB: bewusst noch nicht verlinkt. Es gibt keine agb.html - ein
+             Link darauf waere ein 404 auf einer bezahlten Anzeigenseite.
+             Sobald der Text vorliegt: Datei anlegen und diese Zeile
+             einkommentieren.
+        <p><a href="agb.html">AGB</a></p>
+        -->
+      </div>
+
       <div>
         <h4>Kontakt</h4>
         <p><a href="tel:+4915565535408">+49 1556 5535 408</a></p>
         <p><a href="mailto:info@berisabau.de">info@berisabau.de</a></p>
-        <p>Heiermannstr. 5<br>45475 Mülheim an der Ruhr</p>
         <p><a href="https://www.berisabau.de" target="_blank" rel="noopener">www.berisabau.de</a></p>
-      </div>
-      <div>
-        <h4>Badsanierung</h4>
-        <p><a href="#angebot">Komplettbad</a></p>
-        <p><a href="#angebot">Wanne raus, Dusche rein</a></p>
-        <p><a href="#angebot">Fliesen &amp; Abdichtung</a></p>
-        <p><a href="#angebot">Barrierefrei umbauen</a></p>
+        <p class="zeiten">Mo&ndash;Fr 8&ndash;18 Uhr<br>Sa nach Absprache</p>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Berisa Bau · Alle Gewerke aus einer Hand</span>
-      <span><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></span>
+      <span>© 2026 Berisa Bau · Heiermannstr. 5, 45475 Mülheim an der Ruhr</span>
+      <span class="foot-recht"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></span>
     </div>
   </div>
 </footer>

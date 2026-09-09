@@ -445,6 +445,10 @@
     /* Quizkasten und Fusszeile randlos ueber die volle Breite: der helle
        Rahmen und die abgerundeten Ecken haben auf dem Handy einen weissen
        Rand erzeugt. Jetzt schliesst der dunkle Bereich buendig ab. */
+    /* Volle Breite erzwingen - unabhaengig davon, in welchem Container der
+       Abschnitt haengt. So bleibt der dunkle Bereich immer randlos. */
+    .quiz-sec, footer{width:100vw;max-width:100vw;margin-left:calc(50% - 50vw)}
+    body{overflow-x:hidden}
     .quiz-sec{padding:56px 0 0}
     .quiz-sec .wrap{padding-left:0;padding-right:0}
     .quiz-card{max-width:none;margin:0;padding:30px 20px 34px;border-radius:0;

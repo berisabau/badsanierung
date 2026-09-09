@@ -476,6 +476,11 @@
   .staedte-mehr[open]{display:flex;flex-direction:column-reverse;align-items:flex-start;margin-top:2px}
   .staedte-mehr[open] summary{margin-top:8px}
     .foot-recht{display:none}
+  /* Linke Spalte des Vergleichs hat bewusst kein Foto: es gibt kein ehrliches
+     Motiv fuer "fuenf Einzelfirmen", und ein zweites Bad daneben haette sich
+     nur wiederholt. Die Liste traegt die Spalte allein. */
+  .mz-spalte.schlecht{display:flex;align-items:center;background:#f4f5f7}
+  .mz-spalte.schlecht .txt{padding:34px 26px}
 </style>
 </head>
 <body>
@@ -609,7 +614,7 @@
 
     <div class="mz-vergleich">
       <div class="mz-spalte schlecht">
-        <img src="bilder/vergleich-links.jpg" alt="Fertiges Bad mit Eckwanne und Duschbereich" loading="lazy" width="900" height="1200">
+        
         <div class="txt">
         <h4>Fünf Einzelfirmen</h4>
         <ul>

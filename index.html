@@ -405,6 +405,42 @@
   .faq details p{padding:0 0 20px;color:var(--text);font-size:15.5px;line-height:1.65}
   .faq details p + p{padding-top:0;margin-top:-8px}
 
+
+  /* ===== Handy: 76 % der Besucher kommen vom Telefon (Ads-Messung 09.09.2026) ===== */
+  .nur-mob{display:none}
+  @media(max-width:760px){
+    .nur-desk{display:none}
+    .nur-mob{display:inline}
+    p.nur-mob{display:block}
+
+    /* Hero kompakt: der Knopf muss ohne Scrollen erreichbar sein */
+    .hero{min-height:auto;padding:96px 0 132px}
+    .hero .pill{font-size:11px;letter-spacing:1.6px;padding:7px 13px;gap:6px}
+    h1{font-size:clamp(34px,9vw,46px);margin-bottom:16px}
+    .hero .lead{font-size:16.5px;line-height:1.5;margin-bottom:22px}
+
+    /* Das Badfoto sichtbar machen - auf dem Handy war der Hero vorher nur dunkel */
+    .hero-bild{display:block;margin:22px 0 0}
+    .hero-bild img{aspect-ratio:4/3;max-height:none;border-radius:14px}
+
+    /* Knöpfe volle Breite, Daumen zuerst */
+    .hero-cta{display:flex;flex-direction:column;gap:12px}
+    .hero-cta .btn{width:100%;justify-content:center;font-size:17px;padding:17px 22px}
+
+    /* Vertrauenszeile einspaltig, damit sie der feste Balken nicht abschneidet */
+    .chips{flex-direction:column;gap:11px;margin-top:20px}
+    .chip{font-size:14px}
+
+    /* Abschnitte kürzer, damit die Seite auf dem Handy nicht endlos wird */
+    .mz-sec{padding:64px 0}
+    .quiz-sec{padding:64px 0}
+    .quiz-card{padding:26px 18px;border-radius:16px}
+    .preis-karte{padding:22px 18px}
+    .preis-karte .betrag{font-size:26px}
+    .mz-flaechen{grid-template-columns:1fr}
+    .mz-band .wrap{padding:56px 20px}
+    h2{font-size:clamp(26px,7.5vw,34px)}
+  }
 </style>
 </head>
 <body>
@@ -433,9 +469,9 @@
   </div>
   <div class="wrap">
    <div class="hero-text">
-    <span class="pill"><b>BADSANIERUNG</b> · MÜLHEIM · ESSEN · DUISBURG · OBERHAUSEN</span>
+    <span class="pill"><b>BADSANIERUNG</b> <span class="nur-desk">· MÜLHEIM · ESSEN · DUISBURG · OBERHAUSEN</span><span class="nur-mob">· MÜLHEIM &amp; ESSEN</span></span>
     <h1>Ihr neues Bad.<br>Ein Betrieb.<br><span class="under">Zwei Wochen.</span></h1>
-    <p class="lead">Abbruch, Sanitär, Elektro, Fliesen, Feininstallation &ndash; alles von einem Betrieb, mit einem Ansprechpartner und einem Terminplan. In 60 Sekunden erfassen wir Ihr Vorhaben &ndash; Antwort innerhalb von 24 Stunden.</p>
+    <p class="lead nur-desk">Abbruch, Sanitär, Elektro, Fliesen, Feininstallation &ndash; alles von einem Betrieb, mit einem Ansprechpartner und einem Terminplan. In 60 Sekunden erfassen wir Ihr Vorhaben &ndash; Antwort innerhalb von 24 Stunden.</p><p class="lead nur-mob">Alle Gewerke von einem Betrieb. Vier kurze Fragen &ndash; Antwort in 24 Stunden.</p>
     <div class="hero-cta">
       <a href="#angebot" class="btn btn-primary">Jetzt Angebot anfordern
         <svg viewBox="0 0 24 24" width="20" height="20" fill="#fff"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
